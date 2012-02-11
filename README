@@ -1,0 +1,12 @@
+InfraRed Remote Control
+
+An IR detector/demodulator must be connected to the input RECV_PIN.
+This uses the IRremote library:
+http://arcfn.com/2009/08/multi-protocol-infrared-remote-library.html
+
+The algorithm: look at the sequence of MARK signals, and see if each one
+is shorter (0), the same length (1), or longer (2) than the previous.
+Do the same with the SPACE signals.  Hszh the resulting sequence of 0's,
+1's, and 2's to a 32-bit value.  This will give a unique value for each
+different code (probably), for most code systems.
+
